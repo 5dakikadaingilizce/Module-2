@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5 Dakikada İngilizce - Module 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;900&family=Inter:wght@400;700&family=Raleway:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    <style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal; font-style: normal;
+            font-size: 24px; line-height: 1;
+            letter-spacing: normal; text-transform: none;
+            display: inline-block; white-space: nowrap;
+            word-wrap: normal; direction: ltr;
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+    <style>
+        :root {
+            --bg-dark: #0c0118;
+            --bg-secondary: #1a0a2e;
+            --primary: #a855f7;
+            --secondary: #06b6d4;
+            --accent: #f472b6;
+            --text-main: #f8fafc;
+            --white-grad: linear-gradient(180deg, #ffffff, #c4b5fd);
+            --glass-border: rgba(168, 85, 247, 0.2);
+            --shadow-glow: 0 0 40px rgba(139, 92, 246, 0.3);
+            --gradient-primary: linear-gradient(135deg, #7c3aed, #a855f7, #c084fc);
+            --gradient-secondary: linear-gradient(135deg, #06b6d4, #22d3ee, #67e8f9);
+            --gradient-accent: linear-gradient(135deg, #ec4899, #f472b6, #f9a8d4);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body { height: 100%; overflow: hidden; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0c0118 0%, #1a0a2e 50%, #0f172a 100%);
+            height: 100dvh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            color: var(--text-main);
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(168, 85, 247, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(236, 72, 153, 0.08) 0%, transparent 40%);
+            animation: orbFloat 20s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        @keyframes orbFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(120deg); }
+            66% { transform: translate(-20px, 20px) rotate(240deg); }
+        }
+
+        #entry-page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 500px;
+            height: 100dvh;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 24px 14px 60px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            position: relative;
+            z-index: 1;
+        }
+        #entry-page::-webkit-scrollbar { display: none; }
+
+        .main-title-white {
+            font-family: 'Poppins';
+            font-size: clamp(20px,5vw,26px);
+            font-weight: 900;
+            background: var(--white-grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 4px;
+        }
+        .select-lesson-title {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: clamp(22px,6vw,28px);
+            margin: 4px 0 20px;
+            font-weight: 900;
+            font-family: 'Raleway';
+            filter: drop-shadow(0 0 20px rgba(139,92,246,0.4));
+        }
+
+        #lesson-list-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 0 8px 20px;
+            box-sizing: border-box;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            position: relative;
+        }
+
+        .lesson-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1;
+            transition: transform 0.2s;
+        }
+        .lesson-card:active { transform: scale(0.95); }
+
+        .node-btn {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            position: relative; z-index: 2;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            flex-shrink: 0;
+        }
+        .node-btn:hover { transform: translateY(-4px) scale(1.05); }
+
+        .node-logo {
+            width: 68%; height: 68%;
+            background-size: contain !important;
+            background-repeat: no-repeat !important;
+            background-position: center !important;
+            display: block;
+        }
+
+        .lesson-card h3 {
+            font-size: 11px; font-weight: 800; color: #f8fafc;
+            text-align: center; max-width: 100px; font-family: 'Raleway';
+            line-height: 1.2; margin: 6px 0 2px 0 !important;
+        }
+        .lesson-sub {
+            font-size: 9px; color: #a78bfa; text-align: center;
+            max-width: 100px; line-height: 1.3; margin: 0 0 3px 0; font-weight: 500;
+        }
+        .lesson-stars {
+            display: flex; gap: 3px; font-size: 13px; line-height: 1; justify-content: center;
+        }
+
+        @keyframes floatAnim { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+        @keyframes float3d {
+            0%   { transform: translateY(0px) rotateX(0deg); }
+            50%  { transform: translateY(-10px) rotateX(6deg); }
+            100% { transform: translateY(0px) rotateX(0deg); }
+        }
+
+        .lesson-card.active .node-btn { animation: floatAnim 2.5s ease-in-out infinite; }
+        .lesson-card.disabled { cursor: not-allowed; }
+        .lesson-card.disabled .node-btn { background: #374151 !important; box-shadow: 0 8px 0 #1f2937 !important; opacity: 0.55; }
+        .lesson-card.disabled .node-logo { filter: grayscale(1) opacity(0.4); }
+        .lesson-card.disabled h3 { color: #4b5563; }
+        .lesson-card.disabled .lesson-stars { opacity: 0.3; }
+
+        .start-badge {
+            position: absolute; top: -26px; left: 50%; transform: translateX(-50%);
+            background: white; color: #7c3aed; padding: 4px 12px;
+            border-radius: 12px; font-weight: 900; font-size: 10px;
+            box-shadow: 0 4px 0 #7c3aed, 0 8px 20px rgba(139,92,246,0.4);
+            z-index: 15; animation: bounce 1.5s infinite; white-space: nowrap;
+        }
+
+        .notif-btn-wrap { position: absolute; top: 16px; right: 16px; z-index: 200; }
+        .notif-btn {
+            position: relative;
+            background: rgba(139,92,246,0.15);
+            border: 1px solid rgba(139,92,246,0.3);
+            border-radius: 14px; width: 44px; height: 44px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: all 0.2s; color: #c4b5fd;
+        }
+        .notif-btn:hover { background: rgba(139,92,246,0.25); color: white; }
+        .notif-btn .material-symbols-rounded { font-size: 22px; }
+        .notif-badge {
+            position: absolute; top: -6px; right: -6px;
+            background: linear-gradient(135deg, #ec4899, #f472b6);
+            color: white; font-size: 10px; font-weight: 900; font-family: 'Poppins';
+            min-width: 18px; height: 18px; border-radius: 9px;
+            display: none; align-items: center; justify-content: center;
+            padding: 0 4px; box-shadow: 0 2px 10px rgba(236,72,153,0.5);
+            border: 2px solid #0c0118;
+        }
+        .notif-badge.show { display: flex; }
+
+        #changelog-overlay {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+            z-index: 9998; display: none; backdrop-filter: blur(6px);
+        }
+        #changelog-overlay.show { display: block; }
+        #changelog-sheet {
+            position: fixed; bottom: 0; left: 0; right: 0; max-height: 75vh;
+            background: linear-gradient(180deg, #1a0a2e, #0c0118);
+            border-radius: 28px 28px 0 0;
+            border-top: 1px solid rgba(139,92,246,0.3);
+            z-index: 9999; display: flex; flex-direction: column;
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+            box-shadow: 0 -20px 60px rgba(139,92,246,0.3);
+        }
+        #changelog-sheet.show { transform: translateY(0); }
+        .sheet-handle { width: 40px; height: 4px; background: rgba(139,92,246,0.3); border-radius: 2px; margin: 12px auto 0; flex-shrink: 0; }
+        .sheet-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px 10px; flex-shrink: 0; }
+        .sheet-title { font-family: 'Poppins'; font-weight: 900; font-size: 16px; color: #ffffff; -webkit-text-fill-color: #ffffff; }
+        .sheet-close { background: rgba(139,92,246,0.15); border: none; border-radius: 10px; color: #c4b5fd; cursor: pointer; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-size: 16px; transition: background 0.2s; }
+        .sheet-close:hover { background: rgba(139,92,246,0.25); color: white; }
+        .sheet-refresh-banner { margin: 0 16px 10px; background: rgba(168,85,247,0.1); border: 1px solid rgba(168,85,247,0.3); border-radius: 12px; padding: 10px 14px; display: flex; align-items: center; gap: 8px; font-size: 11px; color: #c4b5fd; font-weight: 600; flex-shrink: 0; }
+        .sheet-list { overflow-y: auto; padding: 0 16px 24px; flex: 1; scrollbar-width: none; }
+        .sheet-list::-webkit-scrollbar { display: none; }
+        .cl-item { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid rgba(139,92,246,0.1); align-items: flex-start; }
+        .cl-item:last-child { border-bottom: none; }
+        .cl-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+        .cl-content { flex: 1; }
+
+        .v-tag {
+            position: fixed; top: 10px; left: 10px;
+            font-size: 10px; color: rgba(255,255,255,0.5);
+            background: rgba(139,92,246,0.15); padding: 4px 10px;
+            border-radius: 12px; border: 1px solid rgba(139,92,246,0.2);
+            font-weight: 600; letter-spacing: 0.5px; z-index: 200; pointer-events: none;
+        }
+        body.in-lesson .v-tag { display: none; }
+        .material-symbols-rounded {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle; transition: transform 0.2s;
+        }
+
+        #app-screen {
+            display: none; flex-direction: column; width: 100%; max-width: 420px;
+            height: 100dvh; padding: 8px 8px max(8px, env(safe-area-inset-bottom));
+            overflow: hidden; position: relative; z-index: 1;
+        }
+
+        .top-bar {
+            display: flex; gap: 5px; background: rgba(30,15,60,0.7);
+            backdrop-filter: blur(20px); padding: 5px; border-radius: 14px;
+            border: 1px solid rgba(139,92,246,0.2); flex-shrink: 0; margin-bottom: 6px;
+        }
+        .nav-btn {
+            flex: 1; background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.2);
+            border-radius: 10px; height: 36px; padding: 0 4px; font-size: 9px; font-weight: 700;
+            color: #c4b5fd; cursor: pointer; display: flex; align-items: center; justify-content: center;
+            gap: 4px; touch-action: manipulation; transition: all 0.25s; white-space: nowrap;
+        }
+        .nav-btn:hover { background: rgba(139,92,246,0.2); color: white; transform: translateY(-1px); }
+        .nav-btn .material-symbols-rounded { font-size: 16px; }
+        .auto-tr-btn.active {
+            background: linear-gradient(135deg, #45FFCA, #00d4a0);
+            color: #0f172a; border-color: rgba(255,255,255,0.2);
+            animation: pulse-green 2s infinite;
+        }
+        @keyframes pulse-green {
+            0%   { box-shadow: 0 0 0 0 rgba(69,255,202,0.7), 0 8px 25px rgba(69,255,202,0.5); }
+            70%  { box-shadow: 0 0 0 15px rgba(69,255,202,0), 0 8px 25px rgba(69,255,202,0.5); }
+            100% { box-shadow: 0 0 0 0 rgba(69,255,202,0), 0 8px 25px rgba(69,255,202,0.5); }
+        }
+
+        .app-box {
+            background: linear-gradient(145deg, rgba(30,15,60,0.8), rgba(15,10,40,0.9));
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            padding: 14px 14px 12px; border-radius: 30px;
+            border: 1px solid rgba(139,92,246,0.25);
+            box-shadow: 0 25px 60px -12px rgba(139,92,246,0.3), var(--shadow-glow);
+            text-align: center; position: relative; overflow: hidden;
+            display: flex; flex-direction: column; flex: 1; min-height: 0;
+        }
+        .app-box::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(168,85,247,0.4), transparent);
+        }
+
+        .header-center { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; margin-bottom: 8px; }
+        .app-logo { width: 42px; margin-bottom: 3px; filter: drop-shadow(0 4px 15px rgba(139,92,246,0.4)); animation: float3d 3s ease-in-out infinite; }
+        .sub-title-white { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.8); letter-spacing: 0.5px; margin-bottom: 2px; }
+        .lesson-title-grad { background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; font-size: clamp(18px,5vw,26px); font-family: 'Raleway'; margin-bottom: 3px; line-height: 1.2; }
+        #lessonSubTitle { color: #c4b5fd; font-size: clamp(10px,2.8vw,13px); font-weight: 500; line-height: 1.4; }
+
+        .phrase-container {
+            flex: 1; min-height: 0; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
+            margin: 8px 0 10px;
+            background: linear-gradient(145deg, rgba(30,15,60,0.7), rgba(15,10,40,0.8));
+            border-radius: 24px; padding: 20px 18px; border: 1px solid rgba(139,92,246,0.25);
+            position: relative; overflow: hidden;
+        }
+        .phrase-container::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--secondary), transparent); opacity: 0.5;
+        }
+        #phrase-tr { font-size: clamp(22px,6.5vw,32px); font-weight: 800; color: #67e8f9; margin-bottom: 12px; text-shadow: 0 0 20px rgba(6,182,212,0.2); line-height: 1.3; }
+        #phrase-en { font-size: clamp(16px,4.5vw,22px); color: #c4b5fd; font-style: italic; transition: opacity 0.3s ease; line-height: 1.4; font-weight: 600; }
+
+        .btn-speak {
+            flex-shrink: 0; background: var(--gradient-secondary); color: #0f172a; width: 100%;
+            height: clamp(50px,10vw,60px); border-radius: 18px; font-size: clamp(14px,4vw,17px);
+            font-weight: 900; border: none; font-family: 'Poppins'; cursor: pointer;
+            position: relative; overflow: hidden; animation: pulse-glow 2s infinite;
+            touch-action: manipulation; transition: transform 0.2s; margin-bottom: 8px;
+            box-shadow: 0 8px 0 #0891b2, 0 12px 30px rgba(6,182,212,0.4); letter-spacing: 0.5px;
+        }
+        .btn-speak::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: left 0.5s; }
+        .btn-speak:hover::before { left: 100%; }
+        .btn-speak:active { transform: translateY(4px); box-shadow: 0 4px 0 #0891b2, 0 4px 15px rgba(6,182,212,0.3); }
+
+        @keyframes pulse-glow {
+            0%   { box-shadow: 0 8px 0 #0891b2, 0 0 0 0 rgba(6,182,212,0.7), 0 12px 30px rgba(6,182,212,0.4); }
+            70%  { box-shadow: 0 8px 0 #0891b2, 0 0 0 12px rgba(6,182,212,0), 0 16px 40px rgba(6,182,212,0.5); }
+            100% { box-shadow: 0 8px 0 #0891b2, 0 0 0 0 rgba(6,182,212,0), 0 12px 30px rgba(6,182,212,0.4); }
+        }
+        .recording { animation: recording-glow 0.8s infinite !important; }
+        .recording:active { transform: translateY(4px); box-shadow: 0 4px 0 #0891b2 !important; }
+        @keyframes recording-glow {
+            0%,100% { box-shadow: 0 8px 0 #0891b2, 0 0 15px rgba(6,182,212,0.6), 0 12px 30px rgba(6,182,212,0.4); }
+            50%     { box-shadow: 0 8px 0 #0891b2, 0 0 40px rgba(6,182,212,1), 0 0 60px rgba(6,182,212,0.5); }
+        }
+
+        .btn-row-3 { display: flex; gap: 8px; margin-bottom: 8px; flex-shrink: 0; }
+        .btn-show { flex: 1; background: linear-gradient(135deg, #4f46e5, #7c3aed); border: none; color: white; border-radius: 16px; height: clamp(46px,9.5vw,56px); font-size: clamp(10px,2.8vw,12px); font-weight: 800; cursor: pointer; transition: all 0.25s; font-family: 'Poppins'; letter-spacing: 0.3px; line-height: 1.3; box-shadow: 0 6px 0 #3730a3, 0 10px 25px rgba(79,70,229,0.35); }
+        .btn-show:hover { background: linear-gradient(135deg, #6366f1, #a855f7); transform: translateY(-2px); }
+        .btn-show:active { transform: translateY(4px); box-shadow: 0 2px 0 #3730a3; }
+        .btn-pass { flex: 1; background: linear-gradient(135deg, #b91c1c 0%, #dc2626 50%, #ef4444 100%); color: white; border: none; border-radius: 16px; height: clamp(46px,9.5vw,56px); font-size: clamp(10px,2.8vw,12px); font-weight: 900; cursor: pointer; transition: all 0.2s; font-family: 'Poppins'; letter-spacing: 0.5px; box-shadow: 0 6px 0 #7f1d1d, 0 10px 25px rgba(185,28,28,0.5); }
+        .btn-pass:active { transform: translateY(4px); box-shadow: 0 2px 0 #7f1d1d; }
+        .btn-pass:hover { transform: translateY(-2px); }
+        .btn-listen { flex: 1; background: var(--gradient-primary); color: white; border: none; border-radius: 16px; height: clamp(46px,9.5vw,56px); font-size: clamp(10px,2.8vw,12px); font-weight: 900; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 5px; transition: all 0.2s; font-family: 'Poppins'; letter-spacing: 0.5px; box-shadow: 0 6px 0 #5b21b6, 0 10px 25px rgba(139,92,246,0.35); }
+        .btn-listen:active { transform: translateY(4px); box-shadow: 0 2px 0 #5b21b6; }
+        .btn-listen:hover { transform: translateY(-2px); }
+        .btn-listen .material-symbols-rounded { font-size: clamp(15px,4vw,19px); }
+
+        .btn-row-2 { display: flex; gap: 8px; margin-bottom: 8px; flex-shrink: 0; }
+        .btn-nav { flex: 1; background: rgba(139,92,246,0.12); border: 1px solid rgba(139,92,246,0.25); color: #c4b5fd; border-radius: 16px; height: clamp(44px,9vw,54px); font-size: clamp(12px,3.2vw,14px); font-weight: 800; cursor: pointer; transition: all 0.2s; font-family: 'Poppins'; letter-spacing: 0.5px; display: flex; align-items: center; justify-content: center; gap: 6px; backdrop-filter: blur(10px); }
+        .btn-nav:hover { background: rgba(139,92,246,0.22); color: white; transform: translateY(-2px); }
+        .btn-nav:active { transform: translateY(0); }
+        .btn-nav .material-symbols-rounded { font-size: 18px; }
+
+        #result { flex-shrink: 0; height: 22px; font-weight: 700; font-size: clamp(11px,3vw,14px); display: flex; align-items: center; justify-content: center; margin: 0 0 6px; overflow: hidden; }
+
+        .stats { flex-shrink: 0; background: rgba(30,15,60,0.6); padding: 10px 4px; border-radius: 20px; display: flex; justify-content: space-between; gap: 2px; border: 1px solid rgba(139,92,246,0.2); backdrop-filter: blur(10px); position: relative; overflow: hidden; }
+        .stats::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(168,85,247,0.3), transparent); }
+        .stat-item { display: flex; flex-direction: column; align-items: center; flex: 1; position: relative; }
+        .stat-item:not(:last-child)::after { content: ''; position: absolute; right: 0; top: 20%; height: 60%; width: 1px; background: linear-gradient(180deg, transparent, rgba(139,92,246,0.3), transparent); }
+        .stat-label { font-size: 7px; font-weight: 800; letter-spacing: 0.5px; color: #a78bfa; margin-bottom: 3px; display: flex; align-items: center; gap: 3px; }
+        .stat-icon { font-size: 8px; font-weight: 900; font-family: 'Poppins'; width: 13px; height: 13px; border-radius: 4px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .stat-icon-sym { font-size: 11px !important; font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 20; line-height: 1; }
+        .stat-val { font-size: clamp(14px,4vw,17px); font-weight: 900; font-variant-numeric: tabular-nums; color: white; }
+        .stat-val.green { color: #2dd4bf; }
+        .stat-val.red   { color: #f472b6; }
+
+        #restartOverlay { display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(12,1,24,0.98) 0%, rgba(26,10,46,0.98) 100%); border-radius: 30px; flex-direction: column; justify-content: center; align-items: center; z-index: 50; backdrop-filter: blur(15px); }
+        #restartOverlay h2 { font-family: 'Raleway'; font-size: clamp(20px,6vw,28px); margin-bottom: 20px; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        @media (max-height: 650px) {
+            .app-logo { width: 28px; }
+            .sub-title-white { display: none; }
+            .header-center { margin-bottom: 4px; }
+            .phrase-container { margin: 4px 0 6px; }
+            .btn-speak { height: 44px !important; margin-bottom: 5px; }
+            .btn-row-3, .btn-row-2 { margin-bottom: 5px; gap: 6px; }
+            .btn-show, .btn-pass, .btn-listen, .btn-nav { height: 38px !important; }
+            #result { height: 18px; margin-bottom: 4px; }
+        }
+
+        @keyframes pageSlideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .page-anim { animation: pageSlideIn 0.35s ease-out; }
+    </style>
+</head>
+<body>
+
+<div class="v-tag" id="v-tag-el">V.1.0</div>
+
+<!-- ENTRY PAGE -->
+<div id="entry-page" class="page-anim">
+    <div class="notif-btn-wrap">
+        <button class="notif-btn" onclick="openChangelog()">
+            <span class="material-symbols-rounded">notifications</span>
+            <span class="notif-badge" id="notif-badge">0</span>
+        </button>
+    </div>
+    <img src="module2logo.png"
+         style="width:130px;margin-bottom:10px;filter:drop-shadow(0 10px 30px rgba(139,92,246,0.4));"
+         onerror="this.src='logo.png'">
+    <div class="main-title-white">5 Dakikada İngilizce</div>
+    <div class="select-lesson-title">#Module 2</div>
+    <div id="lesson-list-container"></div>
+</div>
+
+<!-- APP SCREEN -->
+<div id="app-screen">
+    <div class="top-bar">
+        <button class="nav-btn" onclick="goHome()">
+            <span class="material-symbols-rounded">home</span> HOME
+        </button>
+        <button id="autoTRToggle" class="nav-btn auto-tr-btn" onclick="toggleAutoTR()">
+            <span class="material-symbols-rounded">volume_up</span> AUTO TR
+        </button>
+        <button class="nav-btn" onclick="resetToStart()">
+            <span class="material-symbols-rounded">refresh</span> RESTART
+        </button>
+    </div>
+
+    <div class="app-box">
+        <div id="restartOverlay">
+            <h2>Completed! 🏆</h2>
+            <button class="btn-speak" onclick="resetToStart()" style="width:80%;animation:none;box-shadow:none;">RESTART</button>
+        </div>
+
+        <div class="header-center">
+            <img src="logo.png" class="app-logo" onerror="this.style.display='none'">
+            <div class="sub-title-white">5 Dakikada İngilizce</div>
+            <div id="lessonTitle" class="lesson-title-grad">#Lesson 1</div>
+            <div id="lessonSubTitle">Yükleniyor...</div>
+        </div>
+
+        <div class="phrase-container">
+            <div id="phrase-tr">...</div>
+            <div id="phrase-en" style="opacity:0;">...</div>
+        </div>
+
+        <button class="btn-speak" id="startBtn">
+            <span class="material-symbols-outlined" style="font-size:22px;vertical-align:middle;margin-right:6px;">voice_selection</span>TAP TO SPEAK
+        </button>
+
+        <div class="btn-row-3">
+            <button class="btn-show" id="toggleBtn">SHOW<br>ENGLISH</button>
+            <button class="btn-pass" id="passBtn">PASS</button>
+            <button class="btn-listen" id="listenBtn">
+                <span class="material-symbols-rounded">record_voice_over</span> LISTEN
+            </button>
+        </div>
+
+        <div class="btn-row-2">
+            <button class="btn-nav" id="backBtn">
+                <span class="material-symbols-rounded">arrow_back_ios_new</span> BACK
+            </button>
+            <button class="btn-nav" id="nextBtn">
+                NEXT <span class="material-symbols-rounded">arrow_forward_ios</span>
+            </button>
+        </div>
+
+        <div id="result"></div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-label">ORDER <span class="stat-icon" style="background:#a855f7;color:white;">A</span></div>
+                <span id="current" class="stat-val">1</span>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">CORRECT <span class="material-symbols-rounded stat-icon-sym" style="color:#2dd4bf;">task_alt</span></div>
+                <span id="correct" class="stat-val green">0</span>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">PASS <span class="material-symbols-rounded stat-icon-sym" style="color:#f472b6;">fast_forward</span></div>
+                <span id="passedCount" class="stat-val red">0</span>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">REMAIN <span class="material-symbols-rounded stat-icon-sym" style="color:#a855f7;">hourglass_bottom</span></div>
+                <span id="remaining" class="stat-val">0</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CHANGELOG BOTTOM SHEET -->
+<div id="changelog-overlay" onclick="closeChangelog()"></div>
+<div id="changelog-sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-header">
+        <span class="sheet-title">🔔 What's New</span>
+        <button class="sheet-close" onclick="closeChangelog()">✕</button>
+    </div>
+    <div class="sheet-refresh-banner">
+        <span style="font-size:16px;flex-shrink:0;">⚠️</span>
+        <span id="banner-refresh-text">En güncel sürümü kullanmak için lütfen sayfayı yenileyin!</span>
+    </div>
+    <div class="sheet-list" id="sheet-list"></div>
+</div>
+
+<script>
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+const rec = new SR();
+rec.lang = 'en-US';
+rec.continuous = true;
+rec.interimResults = false;
+rec.maxAlternatives = 3;
+
+/* ── Sabit module key ── */
+const activeModuleKey = 'module2';
+
+let allLessonsData = [];
+let currentList = [];
+let index = 0, correctCount = 0, passedCount = 0;
+let isListening = false, showEn = false, autoMode = false;
+let activeLessonId = null;
+let isAutoTR = localStorage.getItem('auto_tr_voice') === 'true';
+if (isAutoTR) document.getElementById('autoTRToggle').classList.add('active');
+
+const APP_VERSION = '1.0';
+
+const rainbowColors = [
+    {bg:'linear-gradient(135deg, #7c3aed, #a855f7)',shadow:'#5b21b6'},
+    {bg:'linear-gradient(135deg, #f97316, #fb923c)',shadow:'#c2410c'},
+    {bg:'linear-gradient(135deg, #06b6d4, #22d3ee)',shadow:'#0e7490'},
+    {bg:'linear-gradient(135deg, #f43f5e, #fb7185)',shadow:'#be123c'},
+    {bg:'linear-gradient(135deg, #22c55e, #4ade80)',shadow:'#15803d'},
+    {bg:'linear-gradient(135deg, #8b5cf6, #a78bfa)',shadow:'#6d28d9'},
+    {bg:'linear-gradient(135deg, #3b82f6, #60a5fa)',shadow:'#1d4ed8'},
+    {bg:'linear-gradient(135deg, #eab308, #facc15)',shadow:'#a16207'},
+    {bg:'linear-gradient(135deg, #ec4899, #f472b6)',shadow:'#be185d'},
+    {bg:'linear-gradient(135deg, #14b8a6, #2dd4bf)',shadow:'#0f766e'},
+    {bg:'linear-gradient(135deg, #d97706, #fbbf24)',shadow:'#92400e'},
+    {bg:'linear-gradient(135deg, #84cc16, #a3e635)',shadow:'#4d7c0f'},
+    {bg:'linear-gradient(135deg, #4f46e5, #6366f1)',shadow:'#3730a3'},
+    {bg:'linear-gradient(135deg, #ef4444, #f87171)',shadow:'#b91c1c'},
+];
+
+function getStarCount(lessonId) {
+    return Math.min(parseInt(localStorage.getItem('speaking_stars_' + activeModuleKey + '_' + lessonId) || '0'), 3);
+}
+function renderStarsHTML(count) {
+    let h = '';
+    for (let i = 0; i < 3; i++) {
+        h += i < count
+            ? '<span class="material-symbols-rounded" style="font-size:15px;color:#fbbf24;">star</span>'
+            : '<span class="material-symbols-rounded" style="font-size:15px;color:#374151;">star_outline</span>';
+    }
+    return h;
+}
+
+function fetchNoCache(url) { return fetch(`${url}?v=${Date.now()}`); }
+
+fetchNoCache('data.json').then(r => r.json()).then(data => {
+    allLessonsData = data;
+    renderLessonMenu();
+});
+
+function showPage(pageId) {
+    ['entry-page', 'app-screen'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = 'none';
+    });
+    const target = document.getElementById(pageId);
+    if (target) {
+        target.style.display = 'flex';
+        target.classList.remove('page-anim');
+        void target.offsetWidth;
+        target.classList.add('page-anim');
+    }
+    document.getElementById('v-tag-el').style.display = pageId === 'app-screen' ? 'none' : 'block';
+    if (pageId === 'app-screen') document.body.classList.add('in-lesson');
+    else document.body.classList.remove('in-lesson');
+}
+
+function renderLessonMenu() {
+    const c = document.getElementById('lesson-list-container');
+    c.innerHTML = '';
+    allLessonsData.forEach((lesson, i) => {
+        const ok = !!lesson.file;
+        const colorSet = rainbowColors[i % rainbowColors.length];
+        const logoFile = lesson.logo ? `logos/${lesson.logo}` : `logos/lessonlogo${lesson.id}.svg`;
+        const starCount = getStarCount(lesson.id);
+        const nodeLogo = `<div class="node-logo" style="background-image:url('${logoFile}');"></div>`;
+        const card = document.createElement('div');
+        card.className = 'lesson-card' + (!ok ? ' disabled' : '');
+        if (ok) card.onclick = () => startLesson(lesson);
+        card.innerHTML = `
+            <div class="node-btn" style="background:${colorSet.bg};box-shadow:0 8px 0 ${colorSet.shadow},0 12px 30px rgba(139,92,246,0.3);">
+                ${nodeLogo}
+            </div>
+            <h3>${lesson.title}</h3>
+            <div class="lesson-sub">${ok ? (lesson.subTitle || '') : 'Coming Soon'}</div>
+            <div class="lesson-stars">${renderStarsHTML(starCount)}</div>
+        `;
+        c.appendChild(card);
+    });
+
+    const allCards = c.querySelectorAll('.lesson-card');
+    let activeFound = false;
+    allLessonsData.forEach((lesson, i) => {
+        if (!lesson.file) return;
+        const starCount = getStarCount(lesson.id);
+        const card = allCards[i];
+        if (starCount > 0) {
+            card.classList.add('completed');
+        } else if (!activeFound) {
+            card.classList.add('active');
+            activeFound = true;
+            const badge = document.createElement('div');
+            badge.className = 'start-badge';
+            badge.innerText = 'HADİ!';
+            card.appendChild(badge);
+        }
+    });
+}
+
+function startLesson(lesson) {
+    fetchNoCache(lesson.file).then(r => r.json()).then(data => {
+        activeLessonId = lesson.id;
+        data = data.map(item => ({
+            tr: item.tr || item.Turkish || '',
+            en: item.en || item.English || '',
+            alt: item.alt || []
+        }));
+        currentList = [...data];
+        const saved = localStorage.getItem('lesson_progress_' + activeModuleKey + '_' + activeLessonId);
+        if (saved) {
+            const p = JSON.parse(saved);
+            index = p.index; correctCount = p.correctCount; passedCount = p.passedCount;
+        } else {
+            index = 0; correctCount = 0; passedCount = 0;
+        }
+        document.getElementById('lessonTitle').innerText = lesson.title;
+        document.getElementById('lessonSubTitle').innerText = lesson.subTitle;
+        showPage('app-screen');
+        render(true);
+    });
+}
+
+function render(speakTR = false) {
+    if (index >= currentList.length) { document.getElementById('restartOverlay').style.display = 'flex'; return; }
+    document.getElementById('phrase-tr').textContent = currentList[index].tr;
+    const alts = (currentList[index].alt || []).join(' / ');
+    document.getElementById('phrase-en').textContent = currentList[index].en + (alts ? ' / ' + alts : '');
+    document.getElementById('phrase-en').style.opacity = showEn ? '1' : '0';
+    document.getElementById('toggleBtn').innerHTML = showEn ? 'HIDE<br>ENGLISH' : 'SHOW<br>ENGLISH';
+    document.getElementById('current').textContent = index + 1;
+    document.getElementById('correct').textContent = correctCount;
+    document.getElementById('passedCount').textContent = passedCount;
+    document.getElementById('remaining').textContent = currentList.length - (index + 1);
+    saveProgress();
+    if (isAutoTR && speakTR) setTimeout(doSpeakTR, 400);
+}
+
+function saveProgress() {
+    if (activeLessonId) localStorage.setItem('lesson_progress_' + activeModuleKey + '_' + activeLessonId, JSON.stringify({ index, correctCount, passedCount }));
+}
+
+function doSpeakTR() {
+    if (!currentList.length || !isAutoTR) return;
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(currentList[index].tr);
+    u.lang = 'tr-TR'; u.rate = 1.0; window.speechSynthesis.speak(u);
+}
+
+function speakEN() {
+    if (!currentList.length) return;
+    window.speechSynthesis.cancel();
+    const alts = currentList[index].alt || [];
+    const u = new SpeechSynthesisUtterance(currentList[index].en);
+    u.lang = 'en-US'; u.rate = 0.8;
+    u.onend = () => {
+        alts.forEach((alt, i) => {
+            setTimeout(() => {
+                const u2 = new SpeechSynthesisUtterance(alt);
+                u2.lang = 'en-US'; u2.rate = 0.8;
+                window.speechSynthesis.speak(u2);
+            }, i * 1200);
+        });
+    };
+    window.speechSynthesis.speak(u);
+}
+
+function playBeep(ok) {
+    try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator(), g = ctx.createGain();
+        osc.connect(g); g.connect(ctx.destination);
+        osc.frequency.value = ok ? 800 : 150;
+        g.gain.setValueAtTime(0.2, ctx.currentTime);
+        g.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
+        osc.start(); osc.stop(ctx.currentTime + 0.3);
+    } catch(e) {}
+}
+
+function normalizeForComparison(text) {
+    const numMap = { '0':'zero','1':'one','2':'two','3':'three','4':'four','5':'five','6':'six','7':'seven','8':'eight','9':'nine','10':'ten' };
+    let t = text.toLowerCase().trim().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g,'');
+    Object.keys(numMap).forEach(n => { t = t.replace(new RegExp(`\\b${n}\\b`,'g'), numMap[n]); });
+    return t.replace(/\boff\b/g,'of');
+}
+
+rec.onstart = () => {
+    isListening = true;
+    document.getElementById('startBtn').innerHTML = '<span class="material-symbols-outlined" style="font-size:22px;vertical-align:middle;margin-right:6px;">noise_aware</span>LISTENING...';
+    document.getElementById('startBtn').classList.add('recording');
+};
+
+rec.onresult = (e) => {
+    let spoken = e.results[e.results.length - 1][0].transcript;
+    const target = currentList[index].en;
+    const ps = normalizeForComparison(spoken);
+    const pt = normalizeForComparison(target);
+    const alternatives = [pt, ...(currentList[index].alt || []).map(a => normalizeForComparison(a))];
+    if (alternatives.some(a => ps === a || ps.includes(a))) {
+        correctCount++;
+        playBeep(true);
+        document.getElementById('result').innerHTML = "<span style='color:#2dd4bf'>EXCELLENT! ✅</span>";
+        setTimeout(() => { nextWord(); if (!autoMode) rec.stop(); }, 800);
+    } else {
+        playBeep(false);
+        document.getElementById('result').innerHTML = `<span style='color:#f472b6'>HEARD: "${spoken}" ❌</span>`;
+    }
+};
+
+rec.onend = () => {
+    if (autoMode) {
+        rec.start();
+    } else {
+        isListening = false;
+        document.getElementById('startBtn').innerHTML = '<span class="material-symbols-outlined" style="font-size:22px;vertical-align:middle;margin-right:6px;">voice_selection</span>TAP TO SPEAK';
+        document.getElementById('startBtn').classList.remove('recording');
+    }
+};
+
+document.getElementById('startBtn').onclick = () => {
+    if (!isListening) { autoMode = true; rec.start(); }
+    else { autoMode = false; rec.stop(); }
+};
+document.getElementById('listenBtn').onclick = speakEN;
+document.getElementById('toggleBtn').onclick = () => { showEn = !showEn; render(false); };
+document.getElementById('nextBtn').onclick = nextWord;
+document.getElementById('backBtn').onclick = () => { if (index > 0) { index--; render(true); } };
+document.getElementById('passBtn').onclick = () => { passedCount++; currentList.push(currentList[index]); nextWord(); };
+
+function nextWord() {
+    if (index < currentList.length - 1) { index++; showEn = false; render(true); document.getElementById('result').innerHTML = ''; }
+    else { document.getElementById('restartOverlay').style.display = 'flex'; }
+}
+function toggleAutoTR() {
+    isAutoTR = !isAutoTR;
+    localStorage.setItem('auto_tr_voice', isAutoTR);
+    document.getElementById('autoTRToggle').classList.toggle('active');
+}
+function goHome() {
+    autoMode = false; try { rec.stop(); } catch(e) {}
+    isListening = false;
+    document.getElementById('startBtn').innerHTML = '<span class="material-symbols-outlined" style="font-size:22px;vertical-align:middle;margin-right:6px;">voice_selection</span>TAP TO SPEAK';
+    document.getElementById('startBtn').classList.remove('recording');
+    showPage('entry-page');
+}
+function resetToStart() {
+    if (confirm('Sıfırlansın mı?')) {
+        index = 0; correctCount = 0; passedCount = 0;
+        localStorage.removeItem('lesson_progress_' + activeModuleKey + '_' + activeLessonId);
+        document.getElementById('restartOverlay').style.display = 'none';
+        render(true); document.getElementById('result').innerHTML = '';
+    }
+}
+
+function updateBadge(data) {
+    const lastId = parseInt(localStorage.getItem('changelog_last_id') || '0');
+    const unread = data.filter(item => item.id > lastId).length;
+    const badge = document.getElementById('notif-badge');
+    if (!badge) return;
+    if (unread > 0) { badge.innerText = unread; badge.classList.add('show'); }
+    else { badge.classList.remove('show'); }
+}
+
+function openChangelog() {
+    fetchNoCache('changelog.json').then(r => r.json()).then(data => {
+        document.getElementById('banner-refresh-text').innerText =
+            `Güncel sürüm: V.${APP_VERSION} — En güncel sürümü kullanmak için lütfen sayfayı yenileyin!`;
+        const list = document.getElementById('sheet-list');
+        list.innerHTML = data.map(entry => {
+            const version = entry.version
+                ? `<span style="font-size:10px;background:rgba(168,85,247,0.2);color:#c084fc;padding:2px 8px;border-radius:6px;font-weight:700;margin-left:6px;">V.${entry.version}</span>`
+                : '';
+            const subItems = (entry.items || []).map(i =>
+                `<div style="display:flex;gap:6px;align-items:flex-start;padding:3px 0;">
+                    <span style="color:#7c3aed;font-size:12px;margin-top:1px;">•</span>
+                    <span style="font-size:12px;color:#e2e8f0;font-weight:500;line-height:1.4;">${i}</span>
+                </div>`
+            ).join('');
+            return `<div class="cl-item">
+                <span class="cl-icon">▸</span>
+                <div class="cl-content">
+                    <div style="display:flex;align-items:center;margin-bottom:6px;">
+                        <span style="font-size:11px;color:#a78bfa;font-weight:700;">${entry.date}</span>${version}
+                    </div>
+                    ${subItems}
+                </div>
+            </div>`;
+        }).join('');
+        document.getElementById('changelog-overlay').classList.add('show');
+        document.getElementById('changelog-sheet').classList.add('show');
+        if (data.length > 0) localStorage.setItem('changelog_last_id', Math.max(...data.map(d => d.id)));
+        updateBadge([]);
+    }).catch(() => {
+        document.getElementById('sheet-list').innerHTML = '<div class="cl-item"><span class="cl-icon">⚠️</span><div class="cl-content"><div style="font-size:13px;color:#e2e8f0;">changelog.json bulunamadı</div></div></div>';
+        document.getElementById('changelog-overlay').classList.add('show');
+        document.getElementById('changelog-sheet').classList.add('show');
+    });
+}
+
+function closeChangelog() {
+    document.getElementById('changelog-overlay').classList.remove('show');
+    document.getElementById('changelog-sheet').classList.remove('show');
+}
+
+function initChangelog() {
+    fetchNoCache('changelog.json').then(r => r.json()).then(data => {
+        updateBadge(data);
+    }).catch(() => {});
+}
+
+initChangelog();
+</script>
+</body>
+</html>
