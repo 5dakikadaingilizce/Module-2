@@ -517,10 +517,12 @@
 <script>
 const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
 const rec = SR ? new SR() : null;
-rec.lang = 'en-US';
-rec.continuous = true;
-rec.interimResults = false;
-rec.maxAlternatives = 3;
+if (rec) {
+    rec.lang = 'en-US';
+    rec.continuous = true;
+    rec.interimResults = false;
+    rec.maxAlternatives = 3;
+}
 
 /* ── Sabit module key ── */
 const activeModuleKey = 'module2';
@@ -717,43 +719,46 @@ function normalizeForComparison(text) {
     return t.replace(/\boff\b/g,'of');
 }
 
-rec.onstart = () => {
-    isListening = true;
-    document.getElementById('startBtn').innerHTML = '<span class="material-symbols-outlined" style="font-size:22px;vertical-align:middle;margin-right:6px;">noise_aware</span>LISTENING...';
-    document.getElementById('startBtn').classList.add('recording');
-};
-
-rec.onresult = (e) => {
-    let spoken = e.results[e.results.length - 1][0].transcript;
-    const target = currentList[index].en;
-    const ps = normalizeForComparison(spoken);
-    const pt = normalizeForComparison(target);
-    const alternatives = [pt, ...(currentList[index].alt || []).map(a => normalizeForComparison(a))];
-    if (alternatives.some(a => ps === a || ps.includes(a))) {
-        correctCount++;
-        playBeep(true);
-        document.getElementById('result').innerHTML = "<span style='color:#2dd4bf'>EXCELLENT! ✅</span>";
-        setTimeout(() => { nextWord(); if (!autoMode) rec.stop(); }, 800);
-    } else {
-        playBeep(false);
-        document.getElementById('result').innerHTML = `<span style='color:#f472b6'>HEARD: "${spoken}" ❌</span>`;
-    }
-};
-
-rec.onend = () => {
-    if (autoMode) {
-        rec.start();
-    } else {
-        isListening = false;
-        document.getElementById('startBtn').innerHTML = '<span class="material-symbols-outlined" style="font-size:22px;vertical-align:middle;margin-right:6px;">voice_selection</span>TAP TO SPEAK';
-        document.getElementById('startBtn').classList.remove('recording');
-    }
-};
-
+    if (rec) {
+    rec.onstart = () => {
+        isListening = true;
+        document.getElementById('startBtn').innerHTML = '<span class="material-symbols-outlined" style="font-size:22px;vertical-align:middle;margin-right:6px;">noise_aware</span>LISTENING...';
+        document.getElementById('startBtn').classList.add('recording');
+    };
+    rec.onresult = (e) => {
+        let spoken = e.results[e.results.length - 1][0].transcript;
+        const target = currentList[index].en;
+        const ps = normalizeForComparison(spoken);
+        const pt = normalizeForComparison(target);
+        const alternatives = [pt, ...(currentList[index].alt || []).map(a => normalizeForComparison(a))];
+        if (alternatives.some(a => ps === a || ps.includes(a))) {
+            correctCount++;
+            playBeep(true);
+            document.getElementById('result').innerHTML = "<span style='color:#2dd4bf'>EXCELLENT! ✅</span>";
+            setTimeout(() => { nextWord(); if (!autoMode) rec.stop(); }, 800);
+        } else {
+            playBeep(false);
+            document.getElementById('result').innerHTML = `<span style='color:#f472b6'>HEARD: "${spoken}" ❌</span>`;
+        }
+    };
+    rec.onend = () => {
+        if (autoMode) {
+            rec.start();
+        } else {
+            isListening = false;
+            document.getElementById('startBtn').innerHTML = '<span class="material-symbols-outlined" style="font-size:22px;vertical-align:middle;margin-right:6px;">voice_selection</span>TAP TO SPEAK';
+            document.getElementById('startBtn').classList.remove('recording');
+        }
+    };
+}
 document.getElementById('startBtn').onclick = () => {
+    if (!rec) return;
     if (!isListening) { autoMode = true; rec.start(); }
     else { autoMode = false; rec.stop(); }
 };
+
+
+    
 document.getElementById('listenBtn').onclick = speakEN;
 document.getElementById('toggleBtn').onclick = () => { showEn = !showEn; render(false); };
 document.getElementById('nextBtn').onclick = nextWord;
