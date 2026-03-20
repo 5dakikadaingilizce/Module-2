@@ -402,12 +402,15 @@
 
 <!-- ENTRY PAGE -->
 <div id="entry-page" class="page-anim">
-    <div class="notif-btn-wrap">
-        <button class="notif-btn" onclick="openChangelog()">
-            <span class="material-symbols-rounded">notifications</span>
-            <span class="notif-badge" id="notif-badge">0</span>
-        </button>
-    </div>
+<div class="notif-btn-wrap">
+    <button class="notif-btn" onclick="openChangelog()">
+        <span class="material-symbols-rounded">notifications</span>
+        <span class="notif-badge" id="notif-badge">0</span>
+    </button>
+    <button class="notif-btn" onclick="location.reload()" style="margin-top:8px;">
+        <span class="material-symbols-rounded">update</span>
+    </button>
+</div>
     
     <img src="module2logo.png"
      style="width:130px;margin-bottom:10px;filter:drop-shadow(0 10px 30px rgba(139,92,246,0.4));"
@@ -430,6 +433,10 @@
         <button class="nav-btn" onclick="resetToStart()">
             <span class="material-symbols-rounded">refresh</span> RESTART
         </button>
+<button class="nav-btn" onclick="location.reload()">
+    <span class="material-symbols-rounded">update</span> UPDATE
+</button>
+        
     </div>
 
     <div class="app-box">
