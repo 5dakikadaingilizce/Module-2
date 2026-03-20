@@ -7,12 +7,18 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
-    <link rel="apple-touch-icon" href="module2logo.png">
+    <link rel="apple-touch-icon" href="module2logo.webp">
     <link rel="manifest" href="manifest.json">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;900&family=Inter:wght@400;700&family=Raleway:wght@700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;900&family=Raleway:wght@700;900&display=swap" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&display=swap" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0&display=swap" media="print" onload="this.media='all'">
+<noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;900&family=Inter:wght@400;700&family=Raleway:wght@700;900&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0">
+</noscript>
+   
     <style>
         .material-symbols-outlined {
             font-family: 'Material Symbols Outlined';
@@ -411,10 +417,13 @@
         <span class="material-symbols-rounded">update</span>
     </button>
 </div>
-    
-    <img src="module2logo.png"
-     style="width:130px;margin-bottom:10px;filter:drop-shadow(0 10px 30px rgba(139,92,246,0.4));"
-     onerror="this.src='logo.png'">
+    <img id="main-logo" src="module2logo.webp"
+     width="130" height="130"
+     fetchpriority="high" decoding="async"
+     style="width:130px;height:auto;margin-bottom:10px;filter:drop-shadow(0 10px 30px rgba(139,92,246,0.4));border-radius:20px;"
+     onerror="this.onerror=null;this.src='logo.webp';this.onerror=function(){this.style.display='none'};"
+     alt="Module 2 Logo">
+
 <div class="v-tag" id="v-tag-el">V.1.0</div>
 <div class="main-title-white">5 Dakikada İngilizce</div>
 <div class="select-lesson-title">#Module 2</div>
@@ -446,7 +455,7 @@
         </div>
 
         <div class="header-center">
-            <img src="logo.png" class="app-logo" onerror="this.style.display='none'">
+            <img src="logo.webp" class="app-logo" width="42" height="42" loading="eager" decoding="async" onerror="this.style.display='none'" alt="Logo">
             <div class="sub-title-white">5 Dakikada İngilizce</div>
             <div id="lessonTitle" class="lesson-title-grad">#Lesson 1</div>
             <div id="lessonSubTitle">Yükleniyor...</div>
