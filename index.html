@@ -862,7 +862,14 @@ function updateLesson(){
     }
     location.reload();
 }
-    
+    const lastVisit = localStorage.getItem('last_visit');
+const now = Date.now();
+if(!lastVisit || (now - parseInt(lastVisit)) > 60000){
+    localStorage.setItem('last_visit', now);
+    if(lastVisit) location.reload();
+} else {
+    localStorage.setItem('last_visit', now);
+}
 initChangelog();
 </script>
 </body>
