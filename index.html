@@ -516,7 +516,7 @@
 
 <script>
 const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-const rec = new SR();
+const rec = SR ? new SR() : null;
 rec.lang = 'en-US';
 rec.continuous = true;
 rec.interimResults = false;
