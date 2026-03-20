@@ -854,13 +854,14 @@ function initChangelog() {
     }).catch(() => {});
 }
 function updateLesson(){
+    const btn = document.querySelector('[onclick="updateLesson()"] .material-symbols-rounded');
+    if(btn){ btn.style.transition='transform 0.5s'; btn.style.transform='rotate(360deg)'; setTimeout(()=>btn.style.transform='',600); }
     if(activeLessonId && allLessonsData.length){
         const lesson = allLessonsData.find(l => l.id === activeLessonId);
-        if(lesson){ loadLesson(lesson); return; }
+        if(lesson){ setTimeout(()=>loadLesson(lesson), 400); return; }
     }
     location.reload();
 }
-
     
 initChangelog();
 </script>
