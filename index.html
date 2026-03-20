@@ -192,7 +192,7 @@
             z-index: 15; animation: bounce 1.5s infinite; white-space: nowrap;
         }
 
-        .notif-btn-wrap { position: absolute; top: 16px; right: 16px; z-index: 200; }
+        .notif-btn-wrap { position: absolute; top: max(16px, env(safe-area-inset-top)); right: 16px; z-index: 200; }
         .notif-btn {
             position: relative;
             background: rgba(139,92,246,0.15);
