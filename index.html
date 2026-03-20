@@ -433,7 +433,7 @@
         <button class="nav-btn" onclick="resetToStart()">
             <span class="material-symbols-rounded">refresh</span> RESTART
         </button>
-<button class="nav-btn" onclick="location.reload()">
+<button class="nav-btn" onclick="updateLesson()">
     <span class="material-symbols-rounded">update</span> UPDATE
 </button>
         
@@ -853,7 +853,15 @@ function initChangelog() {
         updateBadge(data);
     }).catch(() => {});
 }
+function updateLesson(){
+    if(activeLessonId && allLessonsData.length){
+        const lesson = allLessonsData.find(l => l.id === activeLessonId);
+        if(lesson){ loadLesson(lesson); return; }
+    }
+    location.reload();
+}
 
+    
 initChangelog();
 </script>
 </body>
