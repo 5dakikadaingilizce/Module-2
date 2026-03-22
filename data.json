@@ -4,5 +4,6 @@
   { "id": 4, "title": "#Lesson 4", "subTitle": "some / a lot of / any / no kullanımı",     "file": "lessons/m2/lesson4.json", "logo": "lessonlogo4.svg" },
   { "id": 5, "title": "#Lesson 5", "subTitle": "Var deme şekilleri",     "file": "lessons/m2/lesson5.json", "logo": "lessonlogo5.svg" },
   { "id": 6, "title": "#Lesson 6", "subTitle": "Yok deme şekilleri",     "file": "lessons/m2/lesson6.json", "logo": "lessonlogo6.svg" },
-  { "id": 7, "title": "#Lesson 7", "subTitle": " Var mı ? Yok mu ? deme şekilleri",     "file": "lessons/m2/lesson7.json", "logo": "lessonlogo7.svg" }
+  { "id": 7, "title": "#Lesson 7", "subTitle": " Var mı ? Yok mu ? deme şekilleri",     "file": "lessons/m2/lesson7.json", "logo": "lessonlogo7.svg" },
+  { "id": 8, "title": "#Lesson 8", "subTitle": " Kaç tane var? Ne kadar var? deme şekilleri",     "file": "lessons/m2/lesson8.json", "logo": "lessonlogo8.svg" }
 ]
