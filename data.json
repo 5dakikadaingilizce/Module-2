@@ -10,5 +10,6 @@
   { "id": 10, "title": "#Lesson 10", "subTitle": " isim-Sıfat-Fiil de ÇOK deme şekilleri",     "file": "lessons/m2/lesson10.json", "logo": "lessonlogo10.svg" },
   { "id": 11, "title": "#Lesson 11", "subTitle": " as... sıfat... as  ....KADAR sıfat / Sıfatlarda Eşitlik   ",     "file": "lessons/m2/lesson11.json", "logo": "lessonlogo11.svg" },
   { "id": 12, "title": "#Lesson 12", "subTitle": " Sıfatlarda DAHA Üstünlük   ",     "file": "lessons/m2/lesson12.json", "logo": "lessonlogo12.svg" },
-  { "id": 13, "title": "#Lesson 13", "subTitle": " Sıfatlarda EN Üstünlük   ",     "file": "lessons/m2/lesson13.json", "logo": "lessonlogo13.svg" }
+  { "id": 13, "title": "#Lesson 13", "subTitle": " Sıfatlarda EN Üstünlük   ",     "file": "lessons/m2/lesson13.json", "logo": "lessonlogo13.svg" },
+  { "id": 14, "title": "#Lesson 14", "subTitle": " Kural dışı 5 sıfat ( İyi-Kötü-Çok-Az-Uzak)",     "file": "lessons/m2/lesson14.json", "logo": "lessonlogo14.svg" }
 ]
