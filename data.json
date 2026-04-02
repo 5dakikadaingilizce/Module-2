@@ -12,5 +12,6 @@
   { "id": 12, "title": "#Lesson 12", "subTitle": " Sıfatlarda DAHA Üstünlük   ",     "file": "lessons/m2/lesson12.json", "logo": "lessonlogo12.svg" },
   { "id": 13, "title": "#Lesson 13", "subTitle": " Sıfatlarda EN Üstünlük   ",     "file": "lessons/m2/lesson13.json", "logo": "lessonlogo13.svg" },
   { "id": 14, "title": "#Lesson 14", "subTitle": " Kural dışı 5 sıfat ( İyi-Kötü-Çok-Az-Uzak)",     "file": "lessons/m2/lesson14.json", "logo": "lessonlogo14.svg" },
-  { "id": 15, "title": "#Lesson 15", "subTitle": " Sıfatlara VEDA",     "file": "lessons/m2/lesson15.json", "logo": "lessonlogo15.svg" }
+  { "id": 15, "title": "#Lesson 15", "subTitle": " Sıfatlara VEDA",     "file": "lessons/m2/lesson15.json", "logo": "lessonlogo15.svg" },
+  { "id": 16, "title": "#Lesson 16", "subTitle": " EMİR CÜMLELERİ",     "file": "lessons/m2/lesson16.json", "logo": "lessonlogo16.svg" }
 ]
