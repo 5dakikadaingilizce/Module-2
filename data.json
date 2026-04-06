@@ -15,5 +15,6 @@
   { "id": 15, "title": "#Lesson 15", "subTitle": " Sıfatlara VEDA",     "file": "lessons/m2/lesson15.json", "logo": "lessonlogo15.svg" },
   { "id": 16, "title": "#Lesson 16", "subTitle": " EMİR CÜMLELERİ",     "file": "lessons/m2/lesson16.json", "logo": "lessonlogo16.svg" },
   { "id": 17, "title": "#Lesson 17", "subTitle": " Can / Could",     "file": "lessons/m2/lesson17.json", "logo": "lessonlogo17.svg" },
-  { "id": 18, "title": "#Lesson 18", "subTitle": " May / Might",     "file": "lessons/m2/lesson18.json", "logo": "lessonlogo18.svg" }
+  { "id": 18, "title": "#Lesson 18", "subTitle": " May / Might",     "file": "lessons/m2/lesson18.json", "logo": "lessonlogo18.svg" },
+  { "id": 19, "title": "#Lesson 19", "subTitle": " Must / Have to - Has to",     "file": "lessons/m2/lesson19.json", "logo": "lessonlogo19.svg" }
 ]
