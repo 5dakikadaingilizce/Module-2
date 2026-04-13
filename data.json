@@ -19,5 +19,6 @@
   { "id": 19, "title": "#Lesson 19", "subTitle": " Must / Have to - Has to",     "file": "lessons/m2/lesson19.json", "logo": "lessonlogo19.svg" },
   { "id": 20, "title": "#Lesson 20", "subTitle": " Will / am-is-are going to",     "file": "lessons/m2/lesson20.json", "logo": "lessonlogo20.svg" },
   { "id": 21, "title": "#Lesson 21", "subTitle": " Should / Would / Need",     "file": "lessons/m2/lesson21.json", "logo": "lessonlogo21.svg" },
-  { "id": 22, "title": "#Lesson 22", "subTitle": " Tüm Modal Yapıları",     "file": "lessons/m2/lesson22.json", "logo": "lessonlogo22.svg" }
+  { "id": 22, "title": "#Lesson 22", "subTitle": " Tüm Modal Yapıları",     "file": "lessons/m2/lesson22.json", "logo": "lessonlogo22.svg" },
+  { "id": 23, "title": "#Lesson 23", "subTitle": " GENİŞ ZAMAN + VE - CÜMLELER / Want - That Yapıları",     "file": "lessons/m2/lesson23.json", "logo": "lessonlogo23.svg" }
 ]
