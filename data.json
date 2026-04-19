@@ -21,5 +21,17 @@
   { "id": 21, "title": "#Lesson 21", "subTitle": " Should / Would / Need",     "file": "lessons/m2/lesson21.json", "logo": "lessonlogo21.svg" },
   { "id": 22, "title": "#Lesson 22", "subTitle": " Tüm Modal Yapıları",     "file": "lessons/m2/lesson22.json", "logo": "lessonlogo22.svg" },
   { "id": 23, "title": "#Lesson 23", "subTitle": " GENİŞ ZAMAN + VE - CÜMLELER / Want - That Yapıları",     "file": "lessons/m2/lesson23.json", "logo": "lessonlogo23.svg" },
-  { "id": 24, "title": "#Lesson 24", "subTitle": " GENİŞ ZAMAN Soru ve Soru Kalıpları / Want - That Yapıları",     "file": "lessons/m2/lesson24.json", "logo": "lessonlogo24.svg" }
+  { "id": 24, "title": "#Lesson 24", "subTitle": " GENİŞ ZAMAN Soru ve Soru Kalıpları / Want - That Yapıları",     "file": "lessons/m2/lesson24.json", "logo": "lessonlogo24.svg" },
+  { "id": 25, "title": "#Lesson 25", "subTitle": " ŞİMDİKİ ZAMAN",                                       "file": "lessons/m2/lesson25.json", "logo": "lessonlogo25.svg" },
+  { "id": 26, "title": "#Lesson 26", "subTitle": " ...... YAKINDA",                                       "file": "lessons/m2/lesson26.json", "logo": "lessonlogo26.svg" },
+  { "id": 27, "title": "#Lesson 27", "subTitle": " ...... YAKINDA",                                       "file": "lessons/m2/lesson27.json", "logo": "lessonlogo27.svg" },
+  { "id": 28, "title": "#Lesson 28", "subTitle": " ...... YAKINDA",                                       "file": "lessons/m2/lesson28.json", "logo": "lessonlogo28.svg" },
+  { "id": 29, "title": "#Lesson 29", "subTitle": " ...... YAKINDA",                                       "file": "lessons/m2/lesson29.json", "logo": "lessonlogo29.svg" },
+  { "id": 30, "title": "#Lesson 30", "subTitle": " ...... YAKINDA",                                       "file": "lessons/m2/lesson30.json", "logo": "lessonlogo30.svg" },
+  { "id": 31, "title": "#Lesson 31", "subTitle": " ...... YAKINDA",                                       "file": "lessons/m2/lesson31.json", "logo": "lessonlogo31.svg" },
+  { "id": 32, "title": "#Lesson 32", "subTitle": " ...... YAKINDA",                                       "file": "lessons/m2/lesson32.json", "logo": "lessonlogo32.svg" },
+  { "id": 33, "title": "#Lesson 33", "subTitle": " ...... YAKINDA",                                       "file": "lessons/m2/lesson33.json", "logo": "lessonlogo33.svg" },
+  { "id": 34, "title": "#Lesson 34", "subTitle": " ...... YAKINDA",                                       "file": "lessons/m2/lesson34.json", "logo": "lessonlogo34.svg" },
+  { "id": 35, "title": "#Lesson 35", "subTitle": " ...... YAKINDA",                                       "file": "lessons/m2/lesson35.json", "logo": "lessonlogo35.svg" },
+  { "id": 36, "title": "#Lesson 36", "subTitle": " ...... YAKINDA",                                       "file": "lessons/m2/lesson36.json", "logo": "lessonlogo36.svg" }
 ]
