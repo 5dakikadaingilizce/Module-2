@@ -33,5 +33,5 @@
 
   { "id": 34, "title": "#Lesson 34", "subTitle": " to - that Kullanımı -1",                                       "file": "lessons/m2/lesson34.json", "logo": "lessonlogo34.svg" },
   { "id": 35, "title": "#Lesson 35", "subTitle": " to - that kullanımı -2",                                       "file": "lessons/m2/lesson35.json", "logo": "lessonlogo35.svg" },
-  { "id": 36, "title": "#Lesson 36", "subTitle": " ...... YAKINDA",                                       "file": "lessons/m2/lesson36.json", "logo": "lessonlogo36.svg" }
+  { "id": 36, "title": "#Lesson 36", "subTitle": " RECAP",                                       "file": "lessons/m2/lesson36.json", "logo": "lessonlogo36.svg" }
 ]
