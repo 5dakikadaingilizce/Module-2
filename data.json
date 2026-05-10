@@ -31,7 +31,7 @@
   { "id": 31, "title": "#Lesson 31", "subTitle": " Vardı, Yoktu, Var mıydı? , Yok muydu?",                 "file": "lessons/m2/lesson31.json", "logo": "lessonlogo31.svg" },
   { "id": 32, "title": "#Lesson 32", "subTitle": " Fiillerin 3'lü Çekimleri",                                       "file": "lessons/m2/lesson32.json", "logo": "lessonlogo32.svg" },
 
-  { "id": 34, "title": "#Lesson 34", "subTitle": " to - that Kullanımı",                                       "file": "lessons/m2/lesson34.json", "logo": "lessonlogo34.svg" },
-  { "id": 35, "title": "#Lesson 35", "subTitle": " ...... YAKINDA",                                       "file": "lessons/m2/lesson35.json", "logo": "lessonlogo35.svg" },
+  { "id": 34, "title": "#Lesson 34", "subTitle": " to - that Kullanımı -1",                                       "file": "lessons/m2/lesson34.json", "logo": "lessonlogo34.svg" },
+  { "id": 35, "title": "#Lesson 35", "subTitle": " to - that kullanımı -2",                                       "file": "lessons/m2/lesson35.json", "logo": "lessonlogo35.svg" },
   { "id": 36, "title": "#Lesson 36", "subTitle": " ...... YAKINDA",                                       "file": "lessons/m2/lesson36.json", "logo": "lessonlogo36.svg" }
 ]
